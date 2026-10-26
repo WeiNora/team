@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trace & Sip 心靈咖啡所 | 循著軌跡，品味平靜</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warmbg: '#F9F6F0',
+                        earth: '#3C2A21',
+                        terracotta: '#D56E4E',
+                        sage: '#6D7C6B',
+                        sand: '#EFECE6',
+                        darkcard: '#2A1E17'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Serif TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #F9F6F0;
+            color: #3C2A21;
+            font-family: 'Noto Serif TC', 'Inter', serif;
+        }
+        /* Custom scrollbar and soft transitions */
+        ::selection {
+            background-color: #D56E4E;
+            color: #F9F6F0;
+        }
+    </style>
+</head>
+<body class="bg-warmbg text-earth antialiased selection:bg-terracotta selection:text-white">
+
+    <!-- 1. 導覽列 (Navbar) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-warmbg/90 backdrop-blur-md border-b border-earth/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo & Slogan -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-earth text-warmbg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-compass text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-wider font-serif">Trace & Sip</span>
+                    <span class="block text-xs text-sage tracking-widest font-sans">心靈咖啡所</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#manifesto" class="hover:text-terracotta transition-colors">品牌理念</a>
+                <a href="#flavor" class="hover:text-terracotta transition-colors">風味解構</a>
+                <a href="#interactive-note" class="hover:text-terracotta transition-colors">心靈測驗互動</a>
+                <a href="#sensory" class="hover:text-terracotta transition-colors">空間美學</a>
+                <a href="#linktree" class="bg-earth text-warmbg px-4 py-2 rounded-full hover:bg-terracotta transition-all shadow-sm">Linktree 導流</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-earth text-xl focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-warmbg border-b border-earth/10 px-6 py-4 space-y-3 font-medium">
+            <a href="#manifesto" class="block hover:text-terracotta transition-colors py-1">品牌理念</a>
+            <a href="#flavor" class="block hover:text-terracotta transition-colors py-1">風味解構</a>
+            <a href="#interactive-note" class="block hover:text-terracotta transition-colors py-1">心靈測驗互動</a>
+            <a href="#sensory" class="block hover:text-terracotta transition-colors py-1">空間美學</a>
+            <a href="#linktree" class="inline-block bg-earth text-warmbg px-4 py-2 rounded-full hover:bg-terracotta transition-all mt-2">Linktree 導流</a>
+        </div>
+    </header>
+
+    <!-- 2. 首頁 Hero 區塊 -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden border-b border-earth/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center md:text-left">
+                    <span class="inline-flex items-center space-x-2 bg-sage/15 text-sage px-3.5 py-1.5 rounded-full text-xs font-sans tracking-widest font-semibold uppercase">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>智者原型的沉澱空間</span>
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight font-serif">
+                        Trace Your Mind,<br>
+                        <span class="text-terracotta">Sip Your Peace</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-earth/80 font-serif font-light leading-relaxed">
+                        循著軌跡，品味平靜。在日常的紛擾與拉扯中，為自己留下一個全然放鬆、與內心對話的溫暖角落。
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="#interactive-note" class="w-full sm:w-auto bg-earth text-warmbg px-8 py-3.5 rounded-full font-medium hover:bg-terracotta transition-all shadow-md text-center">
+                            寫下你的內心負擔
+                        </a>
+                        <a href="#flavor" class="w-full sm:w-auto border border-earth/30 text-earth px-8 py-3.5 rounded-full font-medium hover:bg-earth/5 transition-all text-center">
+                            探索情緒風味
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-sand rounded-3xl p-6 shadow-xl border border-earth/10 relative">
+                        <!-- Simulated Card Visual -->
+                        <div class="aspect-[4/3] rounded-2xl bg-earth text-warmbg p-6 flex flex-col justify-between relative overflow-hidden shadow-inner">
+                            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-terracotta/20 rounded-full blur-2xl"></div>
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs font-sans tracking-widest text-sage bg-warmbg/10 px-2.5 py-1 rounded">TRACING COFFEE</span>
+                                <i class="fa-solid fa-mug-hot text-2xl text-terracotta"></i>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xl font-serif">心靈微調指南</h3>
+                                <p class="text-sm font-light text-warmbg/80">允许停下，不是偷浪；是為了走更長遠的路。</p>
+                            </div>
+                            <div class="pt-4 border-t border-warmbg/10 flex items-center justify-between text-xs text-warmbg/70">
+                                <span>#TraceAndSip</span>
+                                <span>心靈咖啡所</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 品牌理念 (Brand Manifesto) -->
+    <section id="manifesto" class="py-24 bg-sand/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <span class="text-xs font-sans tracking-widest uppercase text-terracotta font-semibold">Brand Manifesto</span>
+            <h2 class="text-3xl sm:text-4xl font-bold font-serif">咖啡滴落的聲音，是心靈梳理的節奏</h2>
+            <div class="w-16 h-0.5 bg-terracotta mx-auto"></div>
+            <p class="text-lg sm:text-xl text-earth/80 font-serif leading-relaxed font-light">
+                每天被無數期待推著向前走，心裡的疲憊與焦慮，其實都值得被溫柔以待。<br>
+                我們相信，一杯好咖啡不只是醒腦的工具，更是一場與自己對話的儀式。在緩慢流淌的沖煮時光中，放下外界的喧擾，找到與內心的和解。
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 text-left">
+                <div class="bg-warmbg p-6 rounded-2xl shadow-sm border border-earth/10 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-sage/20 text-sage flex items-center justify-center font-bold">1</div>
+                    <h3 class="font-serif font-bold text-lg">誠實面對</h3>
+                    <p class="text-sm text-earth/70">不逃避焦慮，將內在的情緒拉扯化為清晰的軌跡。</p>
+                </div>
+                <div class="bg-warmbg p-6 rounded-2xl shadow-sm border border-earth/10 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-sage/20 text-sage flex items-center justify-center font-bold">2</div>
+                    <h3 class="font-serif font-bold text-lg">溫柔陪伴</h3>
+                    <p class="text-sm text-earth/70">以智者原型的同理心，接住你每一個說不出口的疲憊。</p>
+                </div>
+                <div class="bg-warmbg p-6 rounded-2xl shadow-sm border border-earth/10 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-sage/20 text-sage flex items-center justify-center font-bold">3</div>
+                    <h3 class="font-serif font-bold text-lg">找回平靜</h3>
+                    <p class="text-sm text-earth/70">透過五感微調與手沖儀式，讓紛亂的心思重新歸位。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 風味解構 (Flavor Decomposition) -->
+    <section id="flavor" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-sans tracking-widest uppercase text-terracotta font-semibold">Flavor Decomposition</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-serif">情緒風味解構</h2>
+                <p class="text-earth/70 max-w-xl mx-auto font-serif">點擊下方卡片，探索不同階段的心靈頻率與口感對應</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Flavor Card 1 -->
+                <div onclick="selectFlavor(1)" id="flavor-card-1" class="cursor-pointer bg-sand p-8 rounded-3xl border-2 border-earth/10 hover:border-terracotta transition-all space-y-4 shadow-sm group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-sans tracking-widest text-terracotta font-bold">PHASE 01</span>
+                        <i class="fa-solid fa-cloud-bolt text-earth/40 group-hover:text-terracotta transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">前調：微苦拉扯</h3>
+                    <p class="text-sm text-earth/80 font-serif leading-relaxed">
+                        像剛迎面而來的未知挑戰與緊繃。心跳加速、思緒繁雜，那是面對壓力時最真實的防備與本能反應。
+                    </p>
+                    <div class="pt-2 text-xs text-sage font-sans font-semibold">→ 點擊感受緊繃釋放</div>
+                </div>
+
+                <!-- Flavor Card 2 -->
+                <div onclick="selectFlavor(2)" id="flavor-card-2" class="cursor-pointer bg-sand p-8 rounded-3xl border-2 border-earth/10 hover:border-terracotta transition-all space-y-4 shadow-sm group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-sans tracking-widest text-terracotta font-bold">PHASE 02</span>
+                        <i class="fa-solid fa-wind text-earth/40 group-hover:text-terracotta transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">中調：溫潤層次</h3>
+                    <p class="text-sm text-earth/80 font-serif leading-relaxed">
+                        像深呼吸時，逐漸被梳理開的思緒。在咖啡香氣中找到自己的呼吸節奏，開始接納不完美的自己。
+                    </p>
+                    <div class="pt-2 text-xs text-sage font-sans font-semibold">→ 點擊體驗思緒梳理</div>
+                </div>
+
+                <!-- Flavor Card 3 -->
+                <div onclick="selectFlavor(3)" id="flavor-card-3" class="cursor-pointer bg-sand p-8 rounded-3xl border-2 border-earth/10 hover:border-terracotta transition-all space-y-4 shadow-sm group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-sans tracking-widest text-terracotta font-bold">PHASE 03</span>
+                        <i class="fa-solid fa-seedling text-earth/40 group-hover:text-terracotta transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">尾韻：甘甜平靜</h3>
+                    <p class="text-sm text-earth/80 font-serif leading-relaxed">
+                        像內心風暴過後的寧靜。回甘的滋味在口中蔓延，象徵著與自己和解後的釋懷與溫柔力量。
+                    </p>
+                    <div class="pt-2 text-xs text-sage font-sans font-semibold">→ 點擊領略內在平靜</div>
+                </div>
+            </div>
+
+            <!-- Dynamic Flavor Feedback Box -->
+            <div id="flavor-feedback" class="bg-earth text-warmbg p-8 rounded-3xl shadow-lg max-w-3xl mx-auto text-center space-y-3 transition-all duration-500">
+                <span class="text-xs text-terracotta font-sans tracking-widest uppercase">情緒風味解析</span>
+                <h4 id="feedback-title" class="text-xl font-serif font-bold">請點選上方卡片以檢視您的專屬心靈解析</h4>
+                <p id="feedback-desc" class="text-sm text-warmbg/80 font-serif font-light">我們將透過風味的轉換，陪伴您走過每一個情緒起伏的時刻。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 心靈留言／互動卡 (Interactive Note) -->
+    <section id="interactive-note" class="py-24 bg-sage/10 border-y border-earth/10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-sans tracking-widest uppercase text-terracotta font-semibold">Interactive Note</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-serif">寫下你的內心負擔</h2>
+                <p class="text-earth/70 font-serif">把說不出口的疲憊與焦慮化為文字留在這裡，讓溫暖的療癒反饋接住你。</p>
+            </div>
+
+            <div class="bg-warmbg p-8 sm:p-10 rounded-3xl shadow-xl border border-earth/15 space-y-6">
+                <div class="space-y-2">
+                    <label for="burden-input" class="block text-sm font-serif font-bold text-earth">
+                        Write down your inner burden...
+                    </label>
+                    <textarea id="burden-input" rows="4" class="w-full rounded-2xl border border-earth/20 p-4 bg-sand/50 text-earth placeholder-earth/40 focus:outline-none focus:ring-2 focus:ring-terracotta font-serif resize-none" placeholder="例如：最近工作好忙，覺得快喘不過氣了，不知道自己堅持的意義是什麼..."></textarea>
+                </div>
+
+                <button onclick="submitBurden()" class="w-full bg-earth text-warmbg py-4 rounded-2xl font-serif font-medium hover:bg-terracotta transition-all shadow-md flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>將負擔交給 Trace & Sip 傾聽</span>
+                </button>
+
+                <!-- Response Box -->
+                <div id="burden-response" class="hidden bg-sand p-6 rounded-2xl border border-terracotta/30 space-y-2 animate-fadeIn">
+                    <div class="flex items-center space-x-2 text-terracotta font-bold text-sm font-serif">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span>來自心靈咖啡所的溫柔回信：</span>
+                    </div>
+                    <p id="response-text" class="text-sm text-earth/80 font-serif font-light leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 空間五感微調 (Sensory Setup) -->
+    <section id="sensory" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-sans tracking-widest uppercase text-terracotta font-semibold">Sensory Setup</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-serif">空間五感微調指南</h2>
+                <p class="text-earth/70 max-w-xl mx-auto font-serif">調暗燈光、放慢呼吸，透過視覺、聽覺與嗅覺找回內在平靜</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sensory 1 -->
+                <div class="bg-sand p-6 rounded-3xl border border-earth/10 space-y-4 text-center group hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-earth text-warmbg rounded-2xl flex items-center justify-center mx-auto text-xl shadow-md group-hover:bg-terracotta transition-colors">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg">視覺：柔和光影</h3>
+                    <p class="text-sm text-earth/70 font-serif">採用暖大地色調與低彩度暈黃燈光，瞬間卸除白天的防備與戒備。</p>
+                </div>
+
+                <!-- Sensory 2 -->
+                <div class="bg-sand p-6 rounded-3xl border border-earth/10 space-y-4 text-center group hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-earth text-warmbg rounded-2xl flex items-center justify-center mx-auto text-xl shadow-md group-hover:bg-terracotta transition-colors">
+                        <i class="fa-solid fa-record-vinyl"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg">聽覺：復古旋律</h3>
+                    <p class="text-sm text-earth/70 font-serif">流淌著緩慢溫潤的黑膠唱片旋律，輕輕撫平緊繃的日常神經。</p>
+                </div>
+
+                <!-- Sensory 3 -->
+                <div class="bg-sand p-6 rounded-3xl border border-earth/10 space-y-4 text-center group hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-earth text-warmbg rounded-2xl flex items-center justify-center mx-auto text-xl shadow-md group-hover:bg-terracotta transition-colors">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg">嗅覺：植栽木質</h3>
+                    <p class="text-sm text-earth/70 font-serif">淡淡的薰衣草與檀香木質調，引導呼吸漸漸慢了下來，回歸當下。</p>
+                </div>
+
+                <!-- Sensory 4 -->
+                <div class="bg-sand p-6 rounded-3xl border border-earth/10 space-y-4 text-center group hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-earth text-warmbg rounded-2xl flex items-center justify-center mx-auto text-xl shadow-md group-hover:bg-terracotta transition-colors">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg">觸感：溫熱陶杯</h3>
+                    <p class="text-sm text-earth/70 font-serif">雙手輕輕捧著手作陶杯，感受溫熱傳遞，給自己一個最安穩的擁抱。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Linktree & Call to Action -->
+    <section id="linktree" class="py-20 bg-earth text-warmbg text-center">
+        <div class="max-w-3xl mx-auto px-4 space-y-6">
+            <span class="text-xs font-sans tracking-widest uppercase text-terracotta font-semibold">Official Linktree Guide</span>
+            <h2 class="text-3xl font-serif font-bold">開啟您的內在平靜之旅</h2>
+            <p class="text-warmbg/80 font-serif font-light">點擊下方按鈕，連結至我們的官方 Linktree 導流頁面，探索完整的情緒風味測驗與活動詳情。</p>
+            <div class="pt-2">
+                <a href="https://linktr.ee" target="_blank" class="inline-flex items-center space-x-3 bg-terracotta text-warmbg px-8 py-4 rounded-full font-medium hover:bg-terracotta/90 transition-all shadow-lg text-lg">
+                    <i class="fa-solid fa-link"></i>
+                    <span>造訪 Trace & Sip Linktree</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Disclaimer -->
+    <footer class="bg-darkcard text-warmbg/70 py-12 border-t border-earth/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-8 h-8 rounded-full bg-warmbg text-earth flex items-center justify-center">
+                    <i class="fa-solid fa-compass text-sm"></i>
+                </div>
+                <span class="text-lg font-bold font-serif text-warmbg">Trace & Sip 心靈咖啡所</span>
+            </div>
+            <p class="text-sm font-serif">Trace Your Mind, Sip Your Peace —— 循著軌跡，品味平靜。</p>
+            
+            <!-- 7. 學術專案免責聲明 -->
+            <div class="max-w-xl mx-auto bg-warmbg/5 p-4 rounded-2xl border border-warmbg/10 text-xs text-warmbg/60 font-serif">
+                ⚠️ <span class="font-semibold">學術專案模擬聲明：</span>本網站為大學資訊工程系期中專案模擬展示，無實際商業交易、商品販售與餐飲服務行為。
+            </div>
+
+            <div class="pt-6 border-t border-warmbg/15 text-xs font-sans">
+                &copy; 2026 Trace & Sip 心靈咖啡所. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Flavor decomposition interactive logic
+        function selectFlavor(id) {
+            const feedbackBox = document.getElementById('flavor-feedback');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackDesc = document.getElementById('feedback-desc');
+
+            // Reset borders
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById(`flavor-card-${i}`).classList.remove('border-terracotta', 'bg-warmbg');
+                document.getElementById(`flavor-card-${i}`).classList.add('bg-sand');
+            }
+
+            // Highlight selected
+            const selectedCard = document.getElementById(`flavor-card-${id}`);
+            selectedCard.classList.remove('bg-sand');
+            selectedCard.classList.add('border-terracotta', 'bg-warmbg');
+
+            if (id === 1) {
+                feedbackTitle.innerText = "【前調解析】微苦拉扯：接納你的緊繃";
+                feedbackDesc.innerText = "面對未知挑戰與壓力時的緊繃感是完全正常的。在這裡，允許自己先停下腳步，不用急著堅強，先好好感受這一刻的呼吸。";
+            } else if (id === 2) {
+                feedbackTitle.innerText = "【中調解析】溫潤層次：思緒的溫柔梳理";
+                feedbackDesc.innerText = "深呼吸，就像咖啡在熱水中慢慢綻放香氣。把雜亂的思緒一條條理清，你會發現內心其實擁有比想像中更大的包容力。";
+            } else if (id === 3) {
+                feedbackTitle.innerText = "【尾韻解析】甘甜平靜：與自己的完美和解";
+                feedbackDesc.innerText = "當風暴過去，留在心底的是最溫柔的回甘。這就是屬於你的內在平靜座標，隨時歡迎你回到這個角落。";
+            }
+
+            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Burden submission interactive feedback
+        function submitBurden() {
+            const input = document.getElementById('burden-input');
+            const responseDiv = document.getElementById('burden-response');
+            const responseText = document.getElementById('response-text');
+
+            if (!input.value.trim()) {
+                alert("請先寫下您此時此刻的心情或內心負擔喔！");
+                return;
+            }
+
+            const responses = [
+                "辛苦你了。把這些沉重寫下來的那一刻起，你已經勇敢跨出了照顧自己的第一步。這杯熱咖啡，溫柔地為你接住所有的不安。",
+                "看得出來你最近承擔了很多。請記得，你不需要隨時隨地都完美。允許自己停下來喘口氣，世界不會因此而倒塌的。",
+                "謝謝你誠實面對自己的疲憊。將思緒化為文字是很好的療癒，把焦慮留給杯中的苦甜，把平靜帶回心裡。",
+                "你的努力與拉扯，其實都值得被好好擁抱。喝一口溫熱的茶或咖啡，讓心靈在這裡找到一個安穩的避風港。"
+            ];
+
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            responseText.innerText = randomResponse;
+            responseDiv.classList.remove('hidden');
+            responseDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
